@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-aks-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-aks-app
+  template:
+    metadata:
+      labels:
+        app: demo-aks-app
+    spec:
+      containers:
+        - name: demo-aks-app
+          image: acrkunal.azurecr.io/demo-azure-app:v1
+          ports:
+            - containerPort: 8083
